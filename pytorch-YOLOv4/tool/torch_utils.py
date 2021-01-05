@@ -92,8 +92,9 @@ def do_detect(model, img, conf_thresh, nms_thresh, use_cuda=1):
     img = torch.autograd.Variable(img)
     
     t1 = time.time()
-
     output = model(img)
+    print("input shape : ", img.shape)
+    print("model output shape : ", output[0].shape)
 
     t2 = time.time()
 
