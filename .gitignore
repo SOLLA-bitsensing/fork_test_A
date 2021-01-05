@@ -4,3 +4,4 @@ weights/*
 settings.json
 yolov3/runs/
 *.pt
+coco
