@@ -7,3 +7,7 @@ yolov3/runs/
 coco
 coco128
 */data/coco
+*/data/coco2017
+YOLOv3v4-ModelCompression-MultidatasetTraining-Multibackbone/images
+YOLOv3v4-ModelCompression-MultidatasetTraining-Multibackbone/labels
+YOLOv3v4-ModelCompression-MultidatasetTraining-Multibackbone/results.json

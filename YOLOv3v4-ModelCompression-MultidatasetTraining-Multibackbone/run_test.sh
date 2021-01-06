@@ -1,0 +1,1 @@
+python test.py --cfg ./cfg/yolov4/yolov4.cfg --weights ./../weights/yolov4.weights --data data/coco2017.data --device 0
