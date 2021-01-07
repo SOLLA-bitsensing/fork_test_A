@@ -119,3 +119,7 @@ DONE (t=8.79s).
  Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.766
 ```
 
+## make small coco dataset
+기존 coco dataset에서 image ids기준으로 작은 coco dataset을 만들기 위함
+
+make_small_coco.ipynb 참고
