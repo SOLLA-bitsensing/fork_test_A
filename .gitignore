@@ -1,4 +1,5 @@
 __pycache__
+.ipynb_checkpoints
 cfg/*
 weights/*
 settings.json
@@ -8,8 +9,12 @@ coco
 coco128
 */data/coco
 */data/coco2017
+
 YOLOv3v4-ModelCompression-MultidatasetTraining-Multibackbone/images
 YOLOv3v4-ModelCompression-MultidatasetTraining-Multibackbone/labels
 YOLOv3v4-ModelCompression-MultidatasetTraining-Multibackbone/results
 YOLOv3v4-ModelCompression-MultidatasetTraining-Multibackbone/results_ret
 YOLOv3v4-ModelCompression-MultidatasetTraining-Multibackbone/results.json
+MSCOCO_ObjDet_Detail/*/*/*.jpg
+new_anno.json
+new_pred.json
