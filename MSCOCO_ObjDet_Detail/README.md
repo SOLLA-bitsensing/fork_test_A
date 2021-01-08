@@ -120,6 +120,8 @@ DONE (t=8.79s).
 ```
 
 ## make small coco dataset
-기존 coco dataset에서 image ids기준으로 작은 coco dataset을 만들기 위함
+coco evaluation을 간단히 테스트 해볼 작은 coco data format dataset 생성
+
+custom data 이용시 coco data format을 사용하면 data split등에도 용이 하도록 image id 기준으로 data를 load 하는 방법도 포함
 
 make_small_coco.ipynb 참고
