@@ -21,6 +21,7 @@ parser.add_argument('-anno_json', '--anno_json', type=str, default='./../MSCOCO_
 parser.add_argument('-pred_json', '--pred_json', type=str, default='./../YOLOv4_pred.josn', help='/path/pred/annotations/*.json')
 parser.add_argument('-img_path', '--img_path', type=str, default='./../MSCOCO_ObjDet_Detail/new_coco/images/', help='/path/coco/images/')
 
+parser.add_argument('-img_size', '--img_size', type=int, default=416, help='416, 502, 608 is reference')
 parser.add_argument('-conf_thresh', '--conf_thresh', type=int, default=0.001, help='nms conf threshold')
 parser.add_argument('-nms_thresh', '--nms_thresh', type=int, default=0.6, help='nms iou threshold')
 
