@@ -79,12 +79,12 @@ if __name__=='__main__':
     m.load_weights(opt.weights)
     use_cuda = opt.use_cuda
     if use_cuda:
-        torch.cuda.set_device(torch.device('cuda:{}'.format(1)))
+        torch.cuda.set_device(torch.device('cuda:{}'.format(opt.device)))
         m.cuda()
 
     # Data Loader
     anno = COCO(opt.anno_json)
-    val_set = COCOImage(opt.anno_json, opt.img_path, 608)
+    val_set = COCOImage(opt.anno_json, opt.img_path, opt.img_size)
     val_loader = DataLoader(val_set, opt.batch_size, shuffle=True, num_workers=0)
 
     # Accumulate results
