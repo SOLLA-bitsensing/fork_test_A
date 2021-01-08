@@ -83,6 +83,8 @@ def do_detect(model, img, conf_thresh, nms_thresh, use_cuda=1):
         img = torch.from_numpy(img.transpose(2, 0, 1)).float().div(255.0).unsqueeze(0)
     elif type(img) == np.ndarray and len(img.shape) == 4:
         img = torch.from_numpy(img.transpose(0, 3, 1, 2)).float().div(255.0)
+    elif type(img) == torch.Tensor:
+        pass
     else:
         print("unknow image type")
         exit(-1)

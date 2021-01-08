@@ -34,6 +34,15 @@ class COCOImage(Dataset):
         img = torch.from_numpy(img.transpose(2, 0, 1)).float().div(255.0)
 
         return img, img_id, (H0, W0)
+    
+    def get_img(self, idx):
+        img_dict = self.anno.loadImgs(idx)[0]
+        file_name = img_dict['file_name']
+
+        img = cv2.imread(self.img_path + file_name)
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+
+        return img
 
     def __len__(self):
         return self.len
