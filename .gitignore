@@ -19,3 +19,5 @@ YOLOv3v4-ModelCompression-MultidatasetTraining-Multibackbone/results.json
 MSCOCO_ObjDet_Detail/*/*/*.jpg
 new_anno.json
 new_pred.json
+new_coco
+YOLOv4_pred*

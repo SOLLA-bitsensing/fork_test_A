@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 
 from tqdm import tqdm
 
+import torch
 from tool.torch_utils import do_detect
 
 from pycocotools.coco import COCO
@@ -19,9 +20,15 @@ parser = argparse.ArgumentParser()
 parser.add_argument('-anno_json', '--anno_json', type=str, default='./../MSCOCO_ObjDet_Detail/new_coco/annotations/new_anno.json', help='/path/coco/annotations/*.json')
 parser.add_argument('-pred_json', '--pred_json', type=str, default='./../YOLOv4_pred.josn', help='/path/pred/annotations/*.json')
 parser.add_argument('-img_path', '--img_path', type=str, default='./../MSCOCO_ObjDet_Detail/new_coco/images/', help='/path/coco/images/')
+
+parser.add_argument('-conf_thresh', '--conf_thresh', type=int, default=0.001, help='nms conf threshold')
+parser.add_argument('-nms_thresh', '--nms_thresh', type=int, default=0.6, help='nms iou threshold')
+
 parser.add_argument('-cfgfile', '--cfgfile', type=str, default='./../cfg/yolov4.cfg', help='/path/*.cfg')
 parser.add_argument('-weights', '--weights', type=str, default='./../weights/yolov4.weights', help='/path/.weights')
+
 parser.add_argument('-use_cuda', '--use_cuda', type=int, default=1, help='0:use cpu, 1:use cuda')
+parser.add_argument('-device', '--device', type=int, default=1, help='avaliable cuda device number')
 parser.add_argument('-batch_size', '--batch_size', type=int, default=4, help='batch size')
 opt = parser.parse_args()
 
@@ -49,7 +56,7 @@ def coco_format(result):
         
         x2 = x2 * W
         y2 = y2 * H
-        
+        # x1, y1, x2, y2 = map(int, (x1, y1, x2 ,y2))
         width = int(x2 - x1)
         height = int(y2 - y1)
         x, y = int(x1), int(y1)
@@ -71,19 +78,20 @@ if __name__=='__main__':
     m.load_weights(opt.weights)
     use_cuda = opt.use_cuda
     if use_cuda:
+        torch.cuda.set_device(torch.device('cuda:{}'.format(1)))
         m.cuda()
 
     # Data Loader
     anno = COCO(opt.anno_json)
     val_set = COCOImage(opt.anno_json, opt.img_path, 608)
-    val_loader = DataLoader(val_set, opt.batchi_size, shuffle=True, num_workers=0)
+    val_loader = DataLoader(val_set, opt.batch_size, shuffle=True, num_workers=0)
 
     # Accumulate results
     result_dict = dict([])
     print('STRAT detection')
     for imgs, img_ids, sizes in tqdm(val_loader):
         # model
-        boxes = do_detect(m, imgs, conf_thresh=0.4, nms_thresh=0.6, use_cuda=use_cuda, verbose=False)
+        boxes = do_detect(m, imgs, conf_thresh=opt.conf_thresh, nms_thresh=opt.nms_thresh, use_cuda=use_cuda, verbose=False)
         # process
         
         for img_id, box, H, W in zip(img_ids.numpy(), boxes, sizes[0].numpy(), sizes[1].numpy()):
