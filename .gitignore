@@ -1,7 +1,7 @@
 __pycache__
 .ipynb_checkpoints
-cfg/*
-weights/*
+YOLO/cfg/*
+YOLO/weights/*
 settings.json
 YOLO/yolov3/runs/
 *.pt
