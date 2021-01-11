@@ -18,6 +18,7 @@ cfg, weight 파싱 예제는 해당 디렉토리 내의 modeling_cfg.ipynb 참�
 - [x] Pytorch YOLOv4 pretrained model evaluation check
     - 평가는 mAP 기준, COCO API를 사용
     - https://github.com/bitsensing/YOLO_Pytorch/blob/master/MSCOCO_ObjDet_Detail/pycocoEvalDemo.ipynb
+    - 해당 작업 내용 : https://github.com/bitsensing/YOLO_Pytorch/pull/13
 - [ ] Pytorch YOLOv4 model train
     - darknet weight 그대로 가져와서 train 시켜보고 성능 잘 나오는지 확인
     - fine tuned 할 부분만 정해서 돌려보기
