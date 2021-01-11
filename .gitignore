@@ -1,0 +1,31 @@
+__pycache__
+.ipynb_checkpoints
+YOLO/cfg/*
+YOLO/weights/*
+settings.json
+YOLO/yolov3/runs/
+*.pt
+coco
+coco128
+*/data/coco
+*/data/coco2017
+
+*.tfevents.*
+YOLO/YOLOv3v4-ModelCompression-MultidatasetTraining-Multibackbone/images
+YOLO/YOLOv3v4-ModelCompression-MultidatasetTraining-Multibackbone/labels
+YOLO/YOLOv3v4-ModelCompression-MultidatasetTraining-Multibackbone/results
+YOLO/YOLOv3v4-ModelCompression-MultidatasetTraining-Multibackbone/data/coco2017
+YOLO/YOLOv3v4-ModelCompression-MultidatasetTraining-Multibackbone/data/coco
+YOLO/YOLOv3v4-ModelCompression-MultidatasetTraining-Multibackbone/results_ret
+YOLO/YOLOv3v4-ModelCompression-MultidatasetTraining-Multibackbone/results.json
+MSCOCO_ObjDet_Detail/*/*/*.jpg
+new_anno.json
+new_pred.json
+new_coco
+YOLOv4_pred*
+
+# YOLO/pytorch-YOLOv4
+# YOLO/yolov3
+YOLO/yolov5
+# YOLO/YOLOv3_webcam
+# YOLO/YOLOv3v4-ModelCompression-MultidatasetTraining-Multibackbone

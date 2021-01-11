@@ -1,0 +1,1 @@
+python coco_eval.py -anno_json ./../coco/annotations/instances_val2017.json -img_path ./../coco/images/val2017/ -batch_size 8

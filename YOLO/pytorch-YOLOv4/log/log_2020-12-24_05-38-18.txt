@@ -1,0 +1,1 @@
+2020-12-24 05:38:18,285 evaluate_on_coco.py[line:298] INFO: Using device cpu
